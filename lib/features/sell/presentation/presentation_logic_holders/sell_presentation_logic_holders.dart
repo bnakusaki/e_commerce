@@ -11,15 +11,15 @@ class SellState extends ChangeNotifier {
   final bloc = sl<ShirtBloc>();
 
   // Shirt Category
-  Categories _shirtCategory = Categories.none;
+  String _shirtCategory = Categories.none.name;
   set shirtCategory(Categories category) {
-    _shirtCategory = category;
+    _shirtCategory = category.name;
   }
 
   // Shirt Brand
-  Brands _shirtBrand = Brands.none;
+  String _shirtBrand = Brands.none.name;
   set shirtBrand(Brands brand) {
-    _shirtBrand = brand;
+    _shirtBrand = brand.name;
   }
 
   // Shirt Size
@@ -47,22 +47,16 @@ class SellState extends ChangeNotifier {
   }
 
 // images
-  final List _images = [];
-  set images(XFile image) {
-    _images.add(image);
-  }
+  // final List _images = [];
+  // set images(XFile image) {
+  // _images.add(image);
+  // }
+  // Indicator of progress
+  bool _puttingShirt = false;
+
+  bool get puttingShirt => _puttingShirt;
 
   putShirt() async {
-    debugPrint('===============================================================');
-    debugPrint(_shirtCategory.toString());
-    debugPrint('===============================================================');
-    debugPrint(_shirtSize);
-    debugPrint(_shirtColor);
-    debugPrint(_shirtBrand.toString());
-    debugPrint(_price);
-    debugPrint(_quantity.toString());
-    debugPrint(_images.toString());
-    debugPrint('===============================================================');
     Shirt shirt = Shirt(
       category: _shirtCategory,
       size: _shirtSize,
@@ -70,9 +64,13 @@ class SellState extends ChangeNotifier {
       brand: _shirtBrand,
       price: _price,
       quantity: _quantity,
-      images: _images,
+      // images: _images,
     );
-
-    await bloc.putShirt(shirt);
+    _puttingShirt = true;
+    notifyListeners();
+    final result = await bloc.putShirt(shirt);
+    _puttingShirt = false;
+    notifyListeners();
+    return result;
   }
 }

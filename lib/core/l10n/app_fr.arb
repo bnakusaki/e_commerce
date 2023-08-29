@@ -10,5 +10,6 @@
     "quantity": "Quantité",
     "images": "Images",
     "create": "Créer",
-    "shirtBrand": "Marque de chemise"
+    "shirtBrand": "Marque de chemise",
+    "add": "Ajouter"
 }

@@ -47,6 +47,8 @@ class _ShirtCategoryFieldState extends State<ShirtCategoryField> {
                 sellState: widget.sellState,
                 searchable: shirtCategories,
                 tapCallback: (p0) {
+                  debugPrint(p0['content'].toString());
+                  debugPrint(Categories.longSleeves.name);
                   widget.sellState.shirtCategory = p0['content'];
                 },
               );

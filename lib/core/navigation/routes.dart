@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/sell/presentation/details_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:ecommerce/core/navigation/route_names.dart';
@@ -20,6 +21,13 @@ final GoRouter _routes = GoRouter(
           builder: (context, state) => const AddToInventory(),
         ),
       ],
-    )
+    ),
+    // GoRoute(
+    // name: RouteNames.details,
+    // path: '/details/:shirt',
+    // builder: (context, state) {
+    // return DetailsScreen(shirt: state.pathParameters['userId']);
+    // },
+    // )
   ],
 );

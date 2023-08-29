@@ -13,13 +13,13 @@ import 'package:equatable/equatable.dart';
 /// 8. If not a registered user, follow with authentication forms.
 
 class Shirt extends Equatable {
-  final Categories category;
+  final String category;
   final String size;
   final String color;
-  final Brands brand;
+  final String brand;
   final String price;
   final int quantity;
-  final List images;
+  // final List images;
 
   const Shirt({
     required this.category,
@@ -28,18 +28,18 @@ class Shirt extends Equatable {
     required this.brand,
     required this.price,
     required this.quantity,
-    required this.images,
+    // required this.images,
   });
 
   /// Initial value for a shirt
-  factory Shirt.initial() => const Shirt(
-        category: Categories.none,
+  factory Shirt.initial() => Shirt(
+        category: Categories.none.name,
         size: '',
         color: '',
-        brand: Brands.none,
+        brand: Brands.none.name,
         price: '',
         quantity: 0,
-        images: [],
+        // images: const [],
       );
 
   Map<String, dynamic> toJson() => {
@@ -49,7 +49,7 @@ class Shirt extends Equatable {
         'brand': brand,
         'price': price,
         'quantity': quantity,
-        'images': images,
+        // 'images': images,
       };
 
   @override
@@ -60,6 +60,6 @@ class Shirt extends Equatable {
         brand,
         price,
         quantity,
-        images,
+        // images,
       ];
 }

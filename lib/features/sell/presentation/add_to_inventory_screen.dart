@@ -1,3 +1,7 @@
+import 'package:dartz/dartz.dart' hide State;
+import 'package:ecommerce/core/widgets/custom_filled_button.dart';
+import 'package:ecommerce/features/sell/presentation/details_screen.dart';
+import 'package:ecommerce/features/shirt/domain/entities/shirt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -6,7 +10,6 @@ import 'package:ecommerce/core/widgets/custom_app_bar.dart';
 import 'package:ecommerce/core/widgets/white_spaces.dart';
 import 'package:ecommerce/features/sell/presentation/presentation_logic_holders/sell_presentation_logic_holders.dart';
 import 'package:ecommerce/features/sell/presentation/widgets/custom_textfield.dart';
-import 'package:ecommerce/features/sell/presentation/widgets/image_picker.dart';
 import 'package:ecommerce/features/sell/presentation/widgets/shirt_brand.dart';
 import 'package:ecommerce/features/sell/presentation/widgets/shirt_categories.dart';
 import 'package:ecommerce/features/sell/presentation/widgets/shirt_sizes.dart';
@@ -97,16 +100,29 @@ class _AddToInventoryState extends State<AddToInventory> {
                     keyboardType: TextInputType.number,
                   ),
                   whiteSpace(height: 10),
-                  ShirtImagesSelector(sellState: sellState),
+                  // ShirtImagesSelector(sellState: sellState),
+                  CustomFilledButton(
+                      label: l10n.add,
+                      loading: sellState.puttingShirt,
+                      onTap: () async {
+                        final result = await sellState.putShirt();
+                        debugPrint(result.toString());
+                        if (result is Right<dynamic, Shirt>) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => DetailsScreen(
+                                shirt: result.fold((l) => null, (r) => r),
+                              ),
+                            ),
+                          );
+                        }
+                      }),
                   whiteSpace(height: 80),
                 ],
               ),
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(onPressed: () async {
-          sellState.putShirt();
-        }),
       ),
     );
   }

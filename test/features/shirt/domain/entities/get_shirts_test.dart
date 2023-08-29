@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
-import 'package:ecommerce/core/failures/exceptions.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+
 import 'package:ecommerce/core/failures/failure.dart';
 import 'package:ecommerce/features/shirt/domain/entities/brands.dart';
 import 'package:ecommerce/features/shirt/domain/entities/categories.dart';
 import 'package:ecommerce/features/shirt/domain/entities/shirt.dart';
 import 'package:ecommerce/features/shirt/domain/repositories/shirt_repository.dart';
 import 'package:ecommerce/features/shirt/domain/use_cases.dart/put_shirts.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
 
 class MockShirtRepository extends Mock implements ShirtRepository {}
 
@@ -20,14 +20,14 @@ void main() {
     useCase = PutShirt(mockShirtRepository);
   });
 
-  Shirt tshirt = const Shirt(
-    category: Categories.shortSleeves,
+  Shirt tshirt = Shirt(
+    category: Categories.shortSleeves.name,
     size: 'size',
     color: 'color',
-    brand: Brands.adidas,
+    brand: Brands.adidas.name,
     price: '30',
     quantity: 1,
-    images: [],
+    // images: const [],
   );
 
   test('entities work with putShirt on the right\n repository works on the right', () async {
