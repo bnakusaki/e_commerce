@@ -5,7 +5,6 @@ import 'package:ecommerce/features/shirt/presentation/bloc.dart';
 import 'package:ecommerce/features/shirt/shirt_injection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class SellState extends ChangeNotifier {
   final bloc = sl<ShirtBloc>();

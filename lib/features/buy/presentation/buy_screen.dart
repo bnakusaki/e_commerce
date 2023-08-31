@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:ecommerce/core/widgets/custom_app_bar.dart';
-import 'package:ecommerce/features/buy/presentation/presentation_logic_holders/presentation_logic_holders.dart';
 import 'package:ecommerce/features/buy/presentation/widgets/widgets.dart';
 import 'package:ecommerce/features/shirt/domain/entities/shirt.dart';
 
@@ -15,7 +14,6 @@ class BuyScreen extends StatefulWidget {
 }
 
 class _BuyScreenState extends State<BuyScreen> {
-  BuyState buyState = BuyState();
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;

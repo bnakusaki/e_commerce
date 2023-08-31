@@ -1,8 +1,5 @@
-import 'package:dartz/dartz.dart' hide State;
 import 'package:ecommerce/core/navigation/route_names.dart';
 import 'package:ecommerce/core/widgets/custom_filled_button.dart';
-import 'package:ecommerce/features/sell/presentation/details_screen.dart';
-import 'package:ecommerce/features/shirt/domain/entities/shirt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -107,7 +104,7 @@ class _AddToInventoryState extends State<AddToInventory> {
                       label: l10n.add,
                       loading: sellState.puttingShirt,
                       onTap: () async {
-                        final result = await sellState.putShirt();
+                        await sellState.putShirt();
                         context.goNamed(RouteNames.buy);
                       }),
                   whiteSpace(height: 80),
