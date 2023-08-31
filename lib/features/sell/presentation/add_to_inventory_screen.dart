@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart' hide State;
+import 'package:ecommerce/core/navigation/route_names.dart';
 import 'package:ecommerce/core/widgets/custom_filled_button.dart';
 import 'package:ecommerce/features/sell/presentation/details_screen.dart';
 import 'package:ecommerce/features/shirt/domain/entities/shirt.dart';
@@ -13,6 +14,7 @@ import 'package:ecommerce/features/sell/presentation/widgets/custom_textfield.da
 import 'package:ecommerce/features/sell/presentation/widgets/shirt_brand.dart';
 import 'package:ecommerce/features/sell/presentation/widgets/shirt_categories.dart';
 import 'package:ecommerce/features/sell/presentation/widgets/shirt_sizes.dart';
+import 'package:go_router/go_router.dart';
 
 class AddToInventory extends StatefulWidget {
   const AddToInventory({super.key});
@@ -106,16 +108,7 @@ class _AddToInventoryState extends State<AddToInventory> {
                       loading: sellState.puttingShirt,
                       onTap: () async {
                         final result = await sellState.putShirt();
-                        debugPrint(result.toString());
-                        if (result is Right<dynamic, Shirt>) {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => DetailsScreen(
-                                shirt: result.fold((l) => null, (r) => r),
-                              ),
-                            ),
-                          );
-                        }
+                        context.goNamed(RouteNames.buy);
                       }),
                   whiteSpace(height: 80),
                 ],

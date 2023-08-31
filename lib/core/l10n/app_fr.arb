@@ -11,5 +11,18 @@
     "images": "Images",
     "create": "Créer",
     "shirtBrand": "Marque de chemise",
-    "add": "Ajouter"
+    "add": "Ajouter",
+    "priceValue": "{value}",
+    "@priceValue": {
+    "description": "A message with a formatted int parameter",
+    "placeholders": {
+        "value": {
+        "type": "int",
+        "format": "compactCurrency",
+        "optionalParameters": {
+            "decimalDigits": 2
+        }
+        }
+    }
+  }
 }

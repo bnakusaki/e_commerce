@@ -27,3 +27,11 @@ TextStyle get heading1 => _heading1;
 // Body text 0
 TextStyle _bodyText0 = GoogleFonts.dmSans(color: primaryColor);
 TextStyle get bodyText0 => _bodyText0;
+
+// Body heading 0
+TextStyle _bodyHeading0 = GoogleFonts.dmSans(
+  color: primaryColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 15,
+);
+TextStyle get bodyHeading0 => _bodyHeading0;

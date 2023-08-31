@@ -1,4 +1,4 @@
-import 'package:ecommerce/features/sell/presentation/details_screen.dart';
+import 'package:ecommerce/features/buy/presentation/buy_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:ecommerce/core/navigation/route_names.dart';
@@ -19,6 +19,11 @@ final GoRouter _routes = GoRouter(
           name: RouteNames.sell,
           path: 'addToInventory',
           builder: (context, state) => const AddToInventory(),
+        ),
+        GoRoute(
+          name: RouteNames.buy,
+          path: 'buyShirts',
+          builder: (context, state) => const BuyScreen(),
         ),
       ],
     ),

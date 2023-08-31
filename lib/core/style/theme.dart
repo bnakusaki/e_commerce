@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 ThemeData get themeData => _themeData;
 
 ThemeData _themeData = ThemeData(
-  appBarTheme: _appBarTheme,
-  pageTransitionsTheme: _pageTransitionsTheme,
-  inputDecorationTheme: _inputDecorationTheme,
-);
+    appBarTheme: _appBarTheme,
+    pageTransitionsTheme: _pageTransitionsTheme,
+    inputDecorationTheme: _inputDecorationTheme,
+    floatingActionButtonTheme: _floatingActionButtonTheme);
 
 /// AppBar Theme
 AppBarTheme _appBarTheme = AppBarTheme(
@@ -33,4 +33,9 @@ InputDecorationTheme _inputDecorationTheme = InputDecorationTheme(
   disabledBorder: OutlineInputBorder(borderSide: BorderSide(color: lightBlack0)),
   errorBorder: OutlineInputBorder(borderSide: BorderSide(color: errorColor)),
   focusedErrorBorder: OutlineInputBorder(borderSide: BorderSide(color: errorColor, width: 2)),
+);
+
+/// Floating Action Button theme
+FloatingActionButtonThemeData _floatingActionButtonTheme = FloatingActionButtonThemeData(
+  backgroundColor: primaryColor,
 );

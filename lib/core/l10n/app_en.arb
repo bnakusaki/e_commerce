@@ -11,5 +11,18 @@
     "images": "Images",
     "create": "Create",
     "shirtBrand": "Shirt Brand",
-    "add": "Add"
+    "add": "Add",
+    "priceValue": "{value}",
+    "@priceValue": {
+    "description": "A message with a formatted int parameter",
+    "placeholders": {
+        "value": {
+        "type": "int",
+        "format": "compactCurrency",
+        "optionalParameters": {
+            "decimalDigits": 2
+        }
+        }
+    }
+  }
 }

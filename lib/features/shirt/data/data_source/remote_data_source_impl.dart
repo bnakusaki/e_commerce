@@ -9,8 +9,6 @@ import 'package:ecommerce/firebase_options.dart';
 class RemoteDataSourceImpl implements RemoteDataSource {
   @override
   Future<Shirt> putShirt(Shirt shirt) async {
-    // TODO remove initializations after putting in main.dart
-
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
